@@ -1,0 +1,2 @@
+# weirdtext
+Weirdtext translation service
