@@ -23,9 +23,13 @@ class Decoder(Resource):
             return str(e), 400
         return dec
 
+class Hello(Resource):
+    def get(self):
+        return 'Hello World!'
 
 api.add_resource(Encoder, '/v1/encode')
 api.add_resource(Decoder, '/v1/decode')
+api.add_resource(Hello, '/')
 
 if __name__ == '__main__':
     app.run(debug=True)
