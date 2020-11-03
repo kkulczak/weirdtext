@@ -32,4 +32,4 @@ api.add_resource(Decoder, '/v1/decode')
 api.add_resource(Hello, '/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(threaded=True)
