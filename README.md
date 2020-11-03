@@ -8,7 +8,7 @@ Deployment is performed automatically, after every push to `master` branch.
 Commit have to pass all tests to be deployed. (Check github actions)
 
 ## Encryption mechanism
-####Encoding
+#### Encoding
 For each original word in the original text, leave the first and last character of it in that
 position, but shuffle (permutate) all the characters in the middle of the word. If possible,
 the resulting “encoded” word MUST NOT be the same as the original word. Keep
@@ -17,7 +17,7 @@ machine possible, your encoder shall also output a sorted list of original words
 include words that got shuffled, not text that did not).
 The composite output of the encoder (see example below) contains encoded text
 (WeirdText) and also the sorted list of original words.
-####Decoding
+#### Decoding
 For decoding composite text, first do a simple check whether the text looks like composite
 output of your encoder. If not, raise some reasonable exception.
 Then, use the encoded text and the words list to decode the text.
