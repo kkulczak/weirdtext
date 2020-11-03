@@ -77,4 +77,4 @@ def decode(message:str) -> str:
         if rep in dictionary:
             translation = dictionary[unique_rep(word_str)]
             decoded[match.start():match.end()] = list(translation)
-    return decoded
+    return ''.join(decoded)

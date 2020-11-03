@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import abort, Flask, jsonify, request
 from flask_restful import Resource, Api
 
 from translation_engine import decode, encode
@@ -9,19 +9,22 @@ api = Api(app)
 
 class Encoder(Resource):
     def post(self):
-        msg = str(request.data)
+        if not request.json or not 'message' in request.json:
+            abort(400)
+        msg = request.json['message']
         enc = encode(msg)
-        return enc
-
+        return jsonify({"message": enc})
 
 class Decoder(Resource):
     def post(self):
-        msg = str(request.data)
+        if not request.json or not 'message' in request.json:
+            abort(400)
+        msg = request.json['message']
         try:
             dec = decode(msg)
         except ValueError as e:
             return str(e), 400
-        return dec
+        return jsonify({'message': dec})
 
 class Hello(Resource):
     def get(self):
